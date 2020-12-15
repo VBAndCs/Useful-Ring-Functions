@@ -10,7 +10,7 @@ func bool(n)
    return not isNull(n)
  end
 
-func boolStr(n)
+func bool2Str(n)
   if bool(n)
     return "True"
   else
