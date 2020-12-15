@@ -35,25 +35,24 @@ Func isFunc(f)
 
    
 func Select(condition, ifTrue, ifFalse)
-	try
+	if isfunc(condition)
 		cond = Call condition()
-	catch
+	else
 		cond = condition
 	end
   
 	if cond
-		try 
+		if isfunc(ifTrue) 
 			return Call ifTrue()
-		catch
+		else
 			return ifTrue
 		end
+	elseif isfunc(ifFalse)  
+		return Call ifFalse()
 	else
-		try 
-			return Call ifFalse()
-		catch
-			return ifFalse
-		end
+		return ifFalse		
 	end
+
 
 func ListToStr(lst, sep, sep2)
 	if isString(lst) 
